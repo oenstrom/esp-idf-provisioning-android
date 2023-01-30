@@ -25,6 +25,7 @@ public class AppConstants {
     public static final String KEY_STATUS_MSG = "status_msg";
     public static final String KEY_WIFI_SSID = "ssid";
     public static final String KEY_WIFI_PASSWORD = "password";
+    public static final String KEY_OTA_IP = "ota_ip";
     public static final String KEY_DEVICE_TYPES = "device_types";
     public static final String KEY_SECURITY_TYPE = "security_type";
     public static final String KEY_USER_NAME = "sec2_username";

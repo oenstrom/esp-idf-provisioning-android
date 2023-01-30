@@ -92,6 +92,7 @@
     <string name="error_device_connect_failed">Failed to connect with device.</string>
     <string name="error_ssid_empty">Network name cannot be empty</string>
     <string name="error_password_empty">Password cannot be empty</string>
+    <string name="error_ota_ip_empty">Update server cannot be empty</string>
     <string name="error_provisioning">Reset your board to factory defaults and retry</string>
     <string name="error_wifi_off">Please turn on Wi-Fi to connect with device.</string>
     <string name="error_security_mismatch">Security applied for communicating with device does not match configuration setting</string>

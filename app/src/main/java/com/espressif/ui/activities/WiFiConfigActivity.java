@@ -45,7 +45,7 @@ public class WiFiConfigActivity extends AppCompatActivity {
     private CardView btnNext;
     private TextView txtNextBtn;
 
-    private EditText etSsid, etPassword;
+    private EditText etSsid, etPassword, etOtaIP;
     private ESPProvisionManager provisionManager;
 
     @Override
@@ -92,13 +92,19 @@ public class WiFiConfigActivity extends AppCompatActivity {
 
             String ssid = etSsid.getText().toString();
             String password = etPassword.getText().toString();
+            String ota_ip = etOtaIP.getText().toString();
 
             if (TextUtils.isEmpty(ssid)) {
                 etSsid.setError(getString(R.string.error_ssid_empty));
                 return;
             }
 
-            goToProvisionActivity(ssid, password);
+            if (TextUtils.isEmpty(ota_ip)) {
+                etOtaIP.setError(getString(R.string.error_ota_ip_empty));
+                return;
+            }
+
+            goToProvisionActivity(ssid, password, ota_ip);
         }
     };
 
@@ -118,6 +124,7 @@ public class WiFiConfigActivity extends AppCompatActivity {
         tvCancel = findViewById(R.id.btn_cancel);
         etSsid = findViewById(R.id.et_ssid_input);
         etPassword = findViewById(R.id.et_password_input);
+        etOtaIP = findViewById(R.id.et_ota_ip_input);
 
         String deviceName = provisionManager.getEspDevice().getDeviceName();
         if (!TextUtils.isEmpty(deviceName)) {
@@ -137,13 +144,14 @@ public class WiFiConfigActivity extends AppCompatActivity {
         btnNext.setOnClickListener(nextBtnClickListener);
     }
 
-    private void goToProvisionActivity(String ssid, String password) {
+    private void goToProvisionActivity(String ssid, String password, String ota_ip) {
 
         finish();
         Intent provisionIntent = new Intent(getApplicationContext(), ProvisionActivity.class);
         provisionIntent.putExtras(getIntent());
         provisionIntent.putExtra(AppConstants.KEY_WIFI_SSID, ssid);
         provisionIntent.putExtra(AppConstants.KEY_WIFI_PASSWORD, password);
+        provisionIntent.putExtra(AppConstants.KEY_OTA_IP, ota_ip);
         startActivity(provisionIntent);
     }
 

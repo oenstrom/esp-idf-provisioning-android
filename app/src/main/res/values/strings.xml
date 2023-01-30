@@ -61,6 +61,7 @@
     <string name="title_activity_provision_instructions">Provision Instructions</string>
     <string name="ssid_hint_text">Network Name</string>
     <string name="password_hint_text">Password</string>
+    <string name="ota_ip_hint_text">Update server IP address</string>
     <string name="provision">Provision</string>
 
     <string name="success_text">Device has been successfully provisioned!</string>
